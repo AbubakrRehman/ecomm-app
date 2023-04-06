@@ -1,0 +1,17 @@
+.cartConatiner {
+    display: flex;
+}
+
+.cartCol {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+.totalPrice {
+    margin-top: 2rem;
+}
+
+.totalPrice p{
+    font-size: 1.5rem;
+}
