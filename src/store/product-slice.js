@@ -1,31 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const productsSlice = createSlice({
-    name: "products",
+const productSlice = createSlice({
+    name: "product",
     initialState: {
-        items: [],
+        item: {},
         notification: null
     },
     reducers: {
-        setProducts(state, action) {
-            const products = action.payload;
-            state.items = products;
+        setProduct(state, action) {
+            const product = action.payload;
+            state.item = product;
         },
         showNotification(state, action) {
             const { title, message, status } = action.payload;
             state.notification = action.payload;
         },
-        clearProductsData(state) {
-            state.items = [];
+        clearProductData(state) {
+            state.item = {};
         }
     }
 });
 
-export const fetchProductsData = () => {
+export const fetchProductData = (productId) => {
     return async (dispatch) => {
-        async function fetchData() {
-            const response = await fetch("https://fakestoreapi.com/products");
+        async function fetchData(productId) {
+            const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
             if (!response.ok) {
                 throw new Error("Could not fetchData");
             }
@@ -34,23 +34,23 @@ export const fetchProductsData = () => {
         }
 
         try {
-            dispatch(productsSlice.actions.showNotification({
+            dispatch(productSlice.actions.showNotification({
                 title: "pending",
                 message: "Loading...",
                 status: "pending"
             }))
-            const products = await fetchData();
-            dispatch(productsSlice.actions.showNotification({
+            const product = await fetchData(productId);
+            dispatch(productSlice.actions.showNotification({
                 title: "success",
-                message: "Products Data loaded successfully!!!",
+                message: "Product Data loaded successfully!!!",
                 status: "success"
             })
             )
 
-            dispatch(productsSlice.actions.setProducts(products));
+            dispatch(productSlice.actions.setProduct(product));
         }
         catch (err) {
-            dispatch(productsSlice.actions.showNotification({
+            dispatch(productSlice.actions.showNotification({
                 title: "error",
                 message: err.message,
                 status: "error"
@@ -61,5 +61,5 @@ export const fetchProductsData = () => {
 }
 
 
-export const productsActions = productsSlice.actions;
-export default productsSlice;
+export const productActions = productSlice.actions;
+export default productSlice;

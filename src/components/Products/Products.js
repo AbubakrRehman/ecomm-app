@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classes from "./Products.module.css";
 import { Link } from 'react-router-dom';
-import { fetchProductsData } from "../../store/products-slice";
+import { fetchProductsData, productsActions } from "../../store/products-slice";
 import { useDispatch, useSelector } from 'react-redux';
 import Notification from '../Notification/Notification';
 
@@ -20,6 +20,7 @@ function Products() {
         //     }
         //     )
         dispatch(fetchProductsData());
+        return () => dispatch(productsActions.clearProductsData())
     }, [])
 
     return (
