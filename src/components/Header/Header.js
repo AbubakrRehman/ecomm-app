@@ -2,12 +2,16 @@ import React from 'react';
 import classes from "./Header.module.css"
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import Notification from '../Notification/Notification';
 
 function Header() {
-    const cartQuantity=useSelector((state)=>state.cart.totalQuantity);
+    const cartQuantity = useSelector((state) => state.cart.totalQuantity);
+    
+ 
 
     return (
         <div className={classes}>
+          
             <nav className={`navbar navbar-expand-lg bg-body-tertiary ${classes.borderBottom}`} >
                 <div className="container">
                     {/* <a className="navbar-brand" href="#">Ecommerce</a> */}
