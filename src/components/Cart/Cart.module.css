@@ -15,3 +15,17 @@
 .totalPrice p{
     font-size: 1.5rem;
 }
+
+
+@media(max-width:400px){
+    .cartConatiner {
+        display: flex;
+        flex-direction: column;
+    }
+    .cartCol {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+}
