@@ -51,11 +51,12 @@ function Cart() {
                 }
             </div>
             <div className={classes.cartCol}>
-                <div className={classes.totalPrice}>
-                    <p>Cart Status</p>
-                    <p> &#8377; {Math.round(cartTotalPrice*100)/100}</p>
-                </div>
-
+                {cartTotalPrice &&
+                    <div className={classes.totalPrice}>
+                        <p>Cart Status</p>
+                        <p> &#8377; {Math.round(cartTotalPrice * 100) / 100}</p>
+                    </div>
+                }
             </div>
         </div>
 

@@ -7,6 +7,7 @@
     padding: 0.5rem 10%;
     align-items: center;
     color: white;
+    border-radius: .5rem;
 }
 
 .notification h2,
