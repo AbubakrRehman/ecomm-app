@@ -34,14 +34,14 @@
 .imageWrapper {
     width: 50%;
     height: 50%;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 
 .col {
     width: 45%;
     display: flex;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     flex-direction: column;
     justify-content: flex-start;
     height: 80vh;
@@ -78,6 +78,6 @@
     .imageWrapper {
         width: 100%;
         height: auto;
-        border: 2px solid red;
+        /* border: 2px solid red; */
     }
 }
